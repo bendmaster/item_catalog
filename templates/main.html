@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
+    <link type="text/css" rel="stylesheet" href="/static/css/bootstrap.min.css" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <link rel=stylesheet type=text/css href="/static/css/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row top-menu">
+            <div class="col-xs-6 text-left">
+                <a class="btn" href="{{url_for('showCategories')}}">
+						Show All Categories
+					</a>
+            </div>
+            <div class="col-xs-6 text-right">
+                {% if 'username' not in session %}
+                <a class="btn" href="{{url_for('showLogin')}}">Click Here to Log in </a> {% else %}
+                <h3>{{session.username}}</h3>
+                <a href="{{url_for('disconnect')}}">Disconnect </a> {% endif %}
+            </div>
+        </div>
+        {% block content %} {% endblock %}
+    </div>
+</body>
+
+</html>
