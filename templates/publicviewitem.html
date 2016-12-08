@@ -29,18 +29,15 @@
         {% endif %} {% endwith %}
     </div>
 </div>
-{% if items !=[] %}
 <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-10">
-        <h2>Items</h2> {% for i in items %}
+        <h2>{{item.name}}</h2>
         <div class="cat-item">
-            <a href="{{url_for('viewItem', category_id = category.id, item_id=i.id ) }}"><h3>{{i.name}}</h3></a>
-            <p>{{i.description}}</p>
-            <p class="cat-price">{{i.price}}</p>
+            <p>{{item.description}}</p>
+            <p class="cat-price">{{item.price}}</p>
         </div>
-        {% endfor %}
     </div>
     <div class="col-md-1"></div>
 </div>
-{% endif %} {% endblock %}
+{% endblock %}
